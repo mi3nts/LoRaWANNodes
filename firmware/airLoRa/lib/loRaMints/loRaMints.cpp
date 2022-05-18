@@ -115,6 +115,7 @@ byte sensorPrintBytes(String sensor,byte readings[],uint8_t numOfvals){
 }
 
 
+
 void sensorPrintFloats(String sensor,float readings[],uint8_t numOfvals){
   SerialUSB.print("#mintsF!");SerialUSB.print(sensor);SerialUSB.print(">");
   for (int i = 0; i < numOfvals; ++i)
