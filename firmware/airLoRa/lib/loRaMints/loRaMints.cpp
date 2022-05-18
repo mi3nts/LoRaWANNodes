@@ -70,8 +70,6 @@ void loraInitMints(char* keyIn,uint8_t powerMode,uint8_t rebootPin)
     if(powerMode == 5){
       rebootBoard(rebootPin);
     }
-
-
     delay (120000);
   for (uint8_t i = 1; i <= 10; i++) {{
      if(lora.setOTAAJoin(JOIN, 10)){
@@ -91,7 +89,7 @@ void resetLoRaMints(uint8_t numOfTrysIn,uint8_t powerMode){
   lora.setPort(portIn);
   memcpy(sendOut,&powerMode,1);
   for (uint16_t  cT = 1 ;cT<numOfTrysIn ; cT++){
-     if(lora.transferPacketCheck(sendOut,2,5)){
+     if(lora.transferPacketCheck(sendOut,1,5)){
         SerialUSB.println("Gateway Contacted");
        break;
      }
@@ -104,7 +102,6 @@ void loRaSendMints(byte sendOut[], uint8_t numOfBytes, uint8_t timeOut, uint8_t 
   lora.setPort(portNum);
   lora.transferPacket(sendOut,numOfBytes,timeOut);
 }
-
 
 
 byte sensorPrintBytes(String sensor,byte readings[],uint8_t numOfvals){

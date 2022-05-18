@@ -5,7 +5,7 @@
 #include "LoRaWan.h"
 
 // ADD LORA APP KEY HERE 
-char* keyIn = "3A2F859628AED2A6ABF7159999CF4F3C";
+char* keyIn = "0123456789ABCDEF0123456789ABCDEF";
 
 uint8_t numOfTries = 20; 
 uint8_t numOfCycles = 0; 
@@ -17,16 +17,10 @@ TinyGPSPlus gpggalr;
 bool BME280Online;
 BME280 bme280; // I2C
 
-bool SCD30Online;
-SCD30 scd;
-uint16_t SCD30ReadTime = 30;
-
 
 bool IPS7100Online;
 IpsSensor ips_sensor;
 uint32_t IPS7100ResetTime = 30;
-
-bool MGS001Online;
 
 bool INA219DuoOnline;
 
@@ -131,6 +125,4 @@ void loop()
     checkRebootCycle(powerMode,rebootPin,numOfCycles);
 }
 
-
-  // lora.setDeviceLowPower();    // bring the LoRaWAN module to sleep mode
 

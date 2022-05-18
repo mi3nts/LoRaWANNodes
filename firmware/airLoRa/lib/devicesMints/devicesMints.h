@@ -7,8 +7,6 @@
 
 #include "Adafruit_INA219.h"
 #include "Seeed_BME280.h"
-#include "SparkFun_SCD30_Arduino_Library.h"
-#include "MutichannelGasSensor.h"
 #include "LoRaWan.h"
 #include "TinyGPS++.h"
 #include <IpsI2C.h>
@@ -30,16 +28,6 @@ extern BME280 bme280;
 bool initializeBME280Mints();
 void readBME280Mints();
 void readBME280MintsMax();
-
-bool initializeMGS001Mints();
-void readMGS001Mints();
-void readMGS001MintsMax();
-
-extern SCD30 scd;
-bool initializeSCD30Mints(uint16_t scdPeriod );
-// void readSCD30Mints();
-void readSCD30MintsMax();
-
 
 extern IpsSensor ips_sensor;
 bool initializeIPS7100Mints();
