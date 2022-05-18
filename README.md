@@ -5,7 +5,8 @@ LoRaWAN Nodes are environmental sensors that can work entirely on their own with
 
 ![SharedAIrDFW.com](https://raw.githubusercontent.com/mi3nts/LoRaWANNodes/main/resources/sharedAirDFWPortal.png)
 
-The current firmware for the sensing system makes use of the following open source libraries. 
+Currently, the firmware for the sensing system uses the following open source libraries.
+
  - [TinyGPS++](https://github.com/mikalhart/TinyGPSPlus)
  - [Grove BME280](https://github.com/Seeed-Studio/Grove_BME280)
  - [Adafruit_INA219](https://github.com/adafruit/Adafruit_INA219)
