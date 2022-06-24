@@ -1,5 +1,5 @@
 # LoRaWANNodes
-![LoRAWAN Node Design](https://raw.githubusercontent.com/mi3nts/LoRaWANNodes/main/resources/design002.png)
+![LoRAWAN Node Design](https://raw.githubusercontent.com/mi3nts/LoRaWANNodes/main/resources/design001.png)
 
 LoRaWAN Nodes are environmental sensors that can work entirely on their own without wired internet or power. The system was designed and built for deployment throughout the Dallas Fortworth metroplex and is currently in public use at the City of Joppa, TX under the sharedAirDFW initiative. 
 
