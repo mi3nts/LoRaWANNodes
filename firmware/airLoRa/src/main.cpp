@@ -58,6 +58,8 @@ void setup()
   SerialUSB.println(powerMode);
   
   INA219DuoPeriod  = getPeriod(powerMode, "INA219Duo");
+  SerialUSB.print("INA219Duo Period: ");
+  SerialUSB.println(INA219DuoPeriod);
 
   loraInitMints(keyIn,powerMode,rebootPin);
 
@@ -68,21 +70,19 @@ void setup()
 
   BME280Online  = initializeBME280Mints();
   BME280Period  = getPeriod(powerMode, "BME280");
-  SerialUSB.print("BME Period: ");
+  SerialUSB.print("BME280 Period: ");
   SerialUSB.println(BME280Period);
 
   IPS7100Online =  initializeIPS7100Mints();
   IPS7100Period  = getPeriod(powerMode, "IPS7100");
-  SerialUSB.print("IPS Period: ");
+  SerialUSB.print("IPS7100 Period: ");
   SerialUSB.println(IPS7100Period);
 
   SerialUSB.print("Power Mode: ");
   SerialUSB.println(powerMode);
 
   resetIPS7100Mints(IPS7100ResetTime);
-  SerialUSB.print("Test 1: ");
   resetLoRaMints(numOfTries,powerMode);
-  SerialUSB.print("Test 2: ");
   delay(5000);
 }
 
@@ -92,12 +92,12 @@ void loop()
 {
       if(readNow(IPS7100Online,IPS7100Time,IPS7100Period,initial))
       {
-
         readIPS7100MintsMax();
         IPS7100Time  = millis();
         numOfCycles++; 
         delay(5000);
       }
+      
       if(readNow(BME280Online,BME280Time,BME280Period,initial))
       { 
         readBME280MintsMax();

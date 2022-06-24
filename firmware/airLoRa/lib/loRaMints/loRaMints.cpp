@@ -193,34 +193,29 @@ void checkReboot(uint8_t powerModeIn,uint8_t rebootPinIn){
 void checkRebootCycle(uint8_t powerModeIn,uint8_t rebootPinIn,uint8_t numOfCycles){
 
   if(powerModeIn == 0){
-    rebootBoard(rebootPinIn); // Halt the board in the day after 6 minutes
+    rebootBoard(rebootPinIn); // Halt the board right away 
   }
-  if((powerModeIn == 1) && (millis() > 360000) ){
-    rebootBoard(rebootPinIn); // Halt the board in the day after 6 minutes
-  }
-  if((powerModeIn == 2) && (millis() > 300000) ){
-    rebootBoard(rebootPinIn); // Halt the board in the day after 5 minutes
-  }
-  if((powerModeIn == 3) && (millis() > 900000) ){
-    delay(900000);// Reboot the board after 15 minutes
-    rebootBoard(rebootPinIn); // Halt the board in the day after 15 minutes
-  }
-  if((powerModeIn == 4) && (numOfCycles >0))
+  
+  if((powerModeIn == 1) && (numOfCycles >0))
   {
     rebootBoard(rebootPinIn); // Halt the board after 1 cycle
   }
-  if((powerModeIn == 5) && (numOfCycles >0))
+
+  if((powerModeIn == 2) && (numOfCycles >0))
   {
     rebootBoard(rebootPinIn); // Halt the board after 1 cycle
   }
-  if((powerModeIn == 6) && (numOfCycles >1))
+
+  if((powerModeIn == 3) && (numOfCycles >1))
   {
     rebootBoard(rebootPinIn); // Halt the board after 2 cycles
   }
-  if((powerModeIn == 7) && (numOfCycles >1))
+
+  if((powerModeIn == 4) && (numOfCycles >1))
   {    
     rebootBoard(rebootPinIn); // Halt the board after 2 cycles
   }
 
-  
+  // On power mode 5 the device continously makes measurements
+  // until the timer intervenes on its own 
 }

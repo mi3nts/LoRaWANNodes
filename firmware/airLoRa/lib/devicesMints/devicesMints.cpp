@@ -159,29 +159,26 @@ uint8_t getPowerMode(uint8_t powerPin)
     return 0;
   }
 
-  if ((abs(busVoltageBat))> 3.3 && (abs(busVoltageBat)<= 3.5)) {
-    return 4;
-  }
-
-  if (abs(busVoltageBat) > 4.00)
+  if (abs(busVoltageBat) <= 3.5 ) 
   {
-    if (abs(busVoltageSol) > 5 ){
-        return 3;
+    return 1;
+  }
+
+  if (abs(busVoltageBat) <= 4.00)
+  {
+    if (abs(busVoltageSol) <= 5 ){
+        return 2;
     }else{
-      return 7;
+      return 3;
     }
   }
 
-
-  if (abs(busVoltageBat)> 3.5 && abs(busVoltageBat)<= 4)  {
-    if (abs(busVoltageSol)<=5)
-    {
+  if (abs(busVoltageSol) <= 5 ){
+        return 4;
+    }else{
       return 5;
-    }else
-    {
-      return 6;
     }
-  }
+
     rebootBoard(powerPin);
     return 0 ;
        
@@ -192,15 +189,16 @@ uint8_t getPowerMode(uint8_t powerPin)
 uint32_t getPeriod(uint8_t powerMode, String sensorID)
 {
   if (sensorID == "IPS7100") {
-    if (powerMode == 3){
+    if (powerMode == 5){
     return 60000; 
     }else
     {
     return 120000; 
     }
   }
+
   if (sensorID == "BME280") {
-    if (powerMode == 3 ){
+    if (powerMode == 5 ){
     return 60000; 
     }else
     {
@@ -209,7 +207,7 @@ uint32_t getPeriod(uint8_t powerMode, String sensorID)
   }
 
   if (sensorID == "INA219Duo") {
-    if (powerMode == 3 ){
+    if (powerMode == 5 ){
     return 180000; 
     }else
     {
@@ -218,7 +216,7 @@ uint32_t getPeriod(uint8_t powerMode, String sensorID)
   }
 
   if (sensorID == "GPGGALR") {
-    if (powerMode == 3 ){
+    if (powerMode == 5){
     return 180000; 
     }else
     {
@@ -229,8 +227,6 @@ return 3000000;
 
 } // End of Period Seek 
  
-
-
 void readINA219DuoMints(){
 
   float shuntVoltageBat  = ina219Battery.getShuntVoltage_mV();
